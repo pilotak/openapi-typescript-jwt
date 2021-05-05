@@ -15,6 +15,7 @@ export const GET: Operation = [
 GET.apiDoc = {
   description: 'Get OpenAPI definition',
   operationId: 'getDocs',
+  security: [], // no auth needed
   responses: {
     200: {
       description: 'OpenAPI definition',

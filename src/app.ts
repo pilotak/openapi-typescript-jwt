@@ -3,8 +3,11 @@ import { initialize } from 'express-openapi';
 import { resolve } from 'path';
 import { jwtAuth } from './functions/security';
 import { docs } from './api-doc';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors());
 
 initialize({
   apiDoc: docs,
