@@ -8,6 +8,7 @@ npm install && npm run dev
 
 ## Run
 First login and copy generated token.
+
 ```sh
 curl -H 'Accept: application/json' -X POST -d 'username=test' http://localhost:3000/v1/login
 ```
@@ -21,3 +22,6 @@ Or you can list users
 ```sh
 curl -H 'Accept: application/json' -X GET -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' http://localhost:3000/v1/users
 ```
+
+## GUI
+Just visit `redoc.html` via your browser

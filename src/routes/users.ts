@@ -25,6 +25,9 @@ GET.apiDoc = {
               },
             },
             required: ['name'],
+            example: {
+              name: 'fred',
+            },
           },
         },
       },
