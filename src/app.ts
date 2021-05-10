@@ -5,7 +5,7 @@ import { jwtAuth } from './functions/security';
 import { docs } from './api-doc';
 import cors from 'cors';
 
-const app = express();
+export const app = express();
 
 app.use(cors());
 
@@ -18,7 +18,12 @@ initialize({
   },
 });
 
-app.use((_req, res, next) => {
+app.get('/v1/test', (_req, res, next) => {
+  res.status(200).end();
+});
+
+app.use((req, res, next) => {
+  console.warn('Invalid URL', req.originalUrl);
   res.status(404).json({ error: 'Not found' });
 });
 
@@ -37,4 +42,10 @@ app.use(((err, _req, res, next) => {
   res.status(err.status).json(message);
 }) as express.ErrorRequestHandler);
 
-app.listen(3000);
+const port = parseInt(process.argv[2], 10);
+
+if (port) {
+  app.listen(port, () => {
+    console.log('Server is running at http://localhost:%d', port);
+  });
+}
