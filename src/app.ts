@@ -44,7 +44,7 @@ app.use(((err, _req, res, next) => {
 
 const port = parseInt(process.argv[2], 10);
 
-if (port) {
+if (!isNaN(port)) {
   app.listen(port, () => {
     console.log('Server is running at http://localhost:%d', port);
   });
