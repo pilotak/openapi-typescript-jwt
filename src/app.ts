@@ -12,14 +12,13 @@ app.use(cors());
 initialize({
   apiDoc: docs,
   app: app,
+  promiseMode: true,
   paths: resolve(__dirname, 'routes'),
+  routesGlob: '**/*.{ts,js}',
+  routesIndexFileRegExp: /(?:index)?\.[tj]s$/,
   securityHandlers: {
     jwtAuth: jwtAuth,
   },
-});
-
-app.get('/v1/test', (_req, res, next) => {
-  res.status(200).end();
 });
 
 app.use((req, res, next) => {
